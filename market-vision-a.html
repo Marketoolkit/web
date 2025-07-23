@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Vision A – Market Toolkit</title>
+  <meta name="description" content="Market Vision A: Multi-Layered Trend & Momentum Signal System for TradingView. Visual EMA ribbon and symbolic signals for trend, momentum and reversal analysis.">
+  <meta name="keywords" content="Market Vision A, Market Toolkit, TradingView indicator, trend, momentum, EMA ribbon, technical analysis">
+  <link rel="icon" href="Images/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indicators.html" class="active">Indicators</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="hero-logo">
+      <h1>Market Vision A</h1>
+      <h2>Multi-Layered Trend & Momentum Signal System</h2>
+      <a href="indicators.html" class="cta">&#8592; Back to All Indicators</a>
+    </div>
+  </header>
+  <main>
+    <section class="indicator-detail">
+      <h2>Overview</h2>
+      <p>Market Vision A overlays your chart with a dynamic EMA ribbon and symbolic signals, helping you spot trend bias, momentum and potential reversal zones at a glance.</p>
+      <pre class="description">
+Marketoolkit - Market Vision A
+Multi-Layered Trend & Momentum Signal System
+Market Vision A is a high-performance visual overlay system designed to help users interpret trend, momentum and potential reversal zones using a curated set of symbolic signals and EMAs.
+This script is ideal for helping users recognize behavior patterns in the market with intuitive iconography and clear ribbon structure.
+System Components
+8-EMA Ribbon:
+• Dynamically colored ribbon for trend bias.
+• Green-shaded ribbon = bullish bias (momentum compression for possible expansion).
+• Red-shaded ribbon = bearish bias (momentum decay or exhaustion).
+• Ribbon adapts visually using 8 EMAs with varied lengths (5–34) for macro/micro sensitivity.
+
+Key Signals and How to Read Them
+ 
+Best Practices
+• Use ribbon direction and structure to determine overall market bias.
+• Combine symbol triggers for higher confluence (e.g., Alpha Emerald + Sapphire Zenith).
+• Watch for Ruby Vector or Golden Pivot X around key price levels for educational analysis of reversals or traps.
+• Use alerts to monitor specific symbols of interest across your charts.
+⚠️ Important Notice
+This tool is provided for educational and informational purposes only. It is designed to assist in technical analysis learning and visual chart study.
+It is not intended to be used as financial advice, a buy/sell signal, or any form of investment recommendation.
+By using this indicator, you acknowledge that all actions you take are your own and you assume full responsibility for any decisions made.
+      </pre>
+      <div class="gallery">
+        <a href="Images/MVA/1.png" title="Market Vision A Example 1" class="gallery-link"><img src="Images/MVA/1.png" alt="Market Vision A Example 1"></a>
+        <a href="Images/MVA/2.png" title="Market Vision A Example 2" class="gallery-link"><img src="Images/MVA/2.png" alt="Market Vision A Example 2"></a>
+      </div>
+      <div class="img-modal" id="imgModal">
+        <div class="img-modal-content">
+          <button class="img-modal-close" id="imgModalClose" aria-label="Close image viewer">&times;</button>
+          <img src="" alt="Expanded indicator screenshot" id="imgModalImg">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Market Toolkit. All rights reserved. | <a href="https://www.tradingview.com/u/Marketoolkit/" target="_blank">TradingView</a> | <a href="https://t.me/Marketoolkit" target="_blank">Telegram</a></p>
+  </footer>
+<script>
+  document.querySelectorAll('.gallery-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('imgModalImg');
+      modalImg.src = this.href;
+      modalImg.alt = this.querySelector('img').alt;
+      modal.classList.add('active');
+    });
+  });
+  document.getElementById('imgModalClose').onclick = function() {
+    document.getElementById('imgModal').classList.remove('active');
+  };
+  document.getElementById('imgModal').onclick = function(e) {
+    if (e.target === this) this.classList.remove('active');
+  };
+</script>
+</body>
+</html> 

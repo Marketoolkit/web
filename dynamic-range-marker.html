@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Range Marker – Market Toolkit</title>
+  <meta name="description" content="Dynamic Range Marker: Advanced price action utility for TradingView. Auto-detects and visualizes dynamic support/resistance, pivots and order flow shifts.">
+  <meta name="keywords" content="Dynamic Range Marker, Market Toolkit, TradingView indicator, support resistance, price action, order flow, technical analysis">
+  <link rel="icon" href="Images/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indicators.html" class="active">Indicators</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="hero-logo">
+      <h1>Dynamic Range Marker</h1>
+      <h2>Advanced Price Action Utility</h2>
+      <a href="indicators.html" class="cta">&#8592; Back to All Indicators</a>
+    </div>
+  </header>
+  <main>
+    <section class="indicator-detail">
+      <h2>Overview</h2>
+      <p>Dynamic Range Marker automatically detects and visualizes significant pivots, dynamic support/resistance zones and order flow shifts. Ideal for marking key levels and filtering noise in any market.</p>
+      <pre class="description">
+Dynamic Range Marker is an advanced price action utility for TradingView designed to automatically detect and visualize significant high and low pivots, dynamic support/resistance zones and order flow shifts - directly on your chart.
+
+What Does It Do?
+* Auto-Detects Key Price Levels: Identifies recent swing highs and lows using adjustable left/right bar lookbacks.
+* Plots Dynamic Zones & Levels: Visualizes levels as zones (ranges) or clean lines, so you can see exactly where price historically reacted.
+* Session-Aware & Filtered: Optionally filters plotted zones by volume, open interest (OI) delta and swing type, providing only the most relevant levels for your trading session or asset.
+* Flexible Visualization: Toggle between drawing full zones, lines and marker symbols, with color and style customization for highs and lows.
+* Smart Zone Management: Levels and zones automatically update, extend or disappear based on whether price has interacted with them - keeping your chart clear and focused.
+* Order Flow Integration: Optionally filter for zones that meet minimum volume or open interest change, helping you focus on areas of strong activity.
+* Cross-Exchange Data: Integrates order flow from major exchanges (Binance, BitMEX, Kraken) to improve accuracy in both crypto and traditional markets.
+
+How It Works
+* Pivot Detection: The script continuously scans for local price pivots (swing highs/lows) using your specified lookback windows.
+* Zone Plotting: When a new significant high or low is detected, the indicator draws a horizontal zone (or level) from that bar forward, optionally extending it until it’s touched by price.
+* Dynamic Cleanup: Zones/levels are automatically removed, extended or hidden depending on user settings and whether they are “touched” (price trades through them).
+* Order Flow Filtering: You can require a minimum volume or OI delta for a swing to be considered valid - ideal for filtering out noise and focusing on meaningful ranges.
+* Visualization Options: Full control over colors, zone width, marker type/size, text alignment and display for a fully tailored visual experience.
+
+Ideal For
+1. Marking dynamic support/resistance zones
+2. Identifying supply/demand imbalances
+3. Filtering only significant levels using real order flow metrics
+4. Any price action, range or order flow-based trading strategies
+
+How to Use:
+1. Add the indicator to your chart.
+2. Adjust the “Lookback Bars Left/Right” and style settings to suit your timeframe and visual preferences.
+3. Enable volume or open interest filters to see only the most significant ranges.
+4. Watch for newly plotted highs/lows—these highlight dynamic, market-driven support and resistance.
+
+⚠️For educational and informational purposes only. Not financial advice.
+      </pre>
+      <div class="gallery">
+        <a href="Images/DRM/1.png" title="Dynamic Range Marker Example 1" class="gallery-link"><img src="Images/DRM/1.png" alt="Dynamic Range Marker Example 1"></a>
+        <a href="Images/DRM/2.png" title="Dynamic Range Marker Example 2" class="gallery-link"><img src="Images/DRM/2.png" alt="Dynamic Range Marker Example 2"></a>
+      </div>
+      <div class="img-modal" id="imgModal">
+        <div class="img-modal-content">
+          <button class="img-modal-close" id="imgModalClose" aria-label="Close image viewer">&times;</button>
+          <img src="" alt="Expanded indicator screenshot" id="imgModalImg">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Market Toolkit. All rights reserved. | <a href="https://www.tradingview.com/u/Marketoolkit/" target="_blank">TradingView</a> | <a href="https://t.me/Marketoolkit" target="_blank">Telegram</a></p>
+  </footer>
+<script>
+  document.querySelectorAll('.gallery-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('imgModalImg');
+      modalImg.src = this.href;
+      modalImg.alt = this.querySelector('img').alt;
+      modal.classList.add('active');
+    });
+  });
+  document.getElementById('imgModalClose').onclick = function() {
+    document.getElementById('imgModal').classList.remove('active');
+  };
+  document.getElementById('imgModal').onclick = function(e) {
+    if (e.target === this) this.classList.remove('active');
+  };
+</script>
+</body>
+</html> 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Vision B – Market Toolkit</title>
+  <meta name="description" content="Market Vision B: Multi-layered oscillator system for momentum, trend pressure and money flow. Color-coded signals and overlays for easy reversal spotting.">
+  <meta name="keywords" content="Market Vision B, Market Toolkit, TradingView indicator, oscillator, momentum, money flow, technical analysis">
+  <link rel="icon" href="Images/icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indicators.html" class="active">Indicators</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="hero-logo">
+      <h1>Market Vision B</h1>
+      <h2>Multi-Layered Oscillator System</h2>
+      <a href="indicators.html" class="cta">&#8592; Back to All Indicators</a>
+    </div>
+  </header>
+  <main>
+    <section class="indicator-detail">
+      <h2>Overview</h2>
+      <p>Market Vision B visualizes momentum shifts, trend pressure and money flow with color-coded signals and overlays, making it easy to spot reversals and trend exhaustion.</p>
+      <pre class="description">
+Marketoolkit – Market Vision B
+Market Vision B is a multi-layered oscillator system designed to help you visualize momentum shifts, trend pressure and money flow dynamics using clean, color-coded visuals and symbolic signals.
+⚠️ For educational and informational purposes only. This script is not financial advice or a signal service. Always perform your own analysis and use appropriate risk management.
+
+How to Read Market Vision B
+✅ Green Dot (Buy Dot):
+Appears when the fast momentum wave crosses above the slow wave, often near oversold levels. This indicates a potential bullish momentum shift or wave reversal.
+❌ Red Dot (Sell Dot):
+Triggered when the fast wave crosses below the slow wave, typically from overbought zones. This may signal a bearish shift or trend exhaustion.
+
+Indicator Components:
+1. WaveTrend Oscillator (WT1 & WT2)
+• The light blue area (WT1) and deep blue area (WT2) represent fast vs. slow momentum.
+• Crossovers between them generate Buy/Sell Dots.
+• Use the spacing between the waves to assess pressure buildup.
+2. VWAP Line (Yellow Area)
+• Shows the strength and continuation potential of the momentum wave.
+• Above the zero line = bullish pressure; below = bearish pressure.
+
+3. Money Flow Fill (Green/Red Area at Bottom)
+• Highlights buying or selling volume pressure using a custom MFI formula.
+• Green fill = inflow; Red fill = outflow.
+• Plotted between levels -95 and -105 for clarity.
+4. RSI and Stochastic Overlay
+• Fuchsia line = RSI, smoothed using Heikin-Ashi data.
+• Color-changing line = Stochastic:
+o Green = Potential reversal (Stoch below RSI)
+o Red = Bearish continuation (Stoch above RSI)
+• Use crossover and separation between these lines to validate trade ideas.
+5. Key Reference Levels
+• +60 / -60 → Overbought / Oversold Zones
+• +53 / -53 → Trigger Zones (Momentum Crossover Sensitivity)
+• 0 → Neutral Baseline
+• 100 → Theoretical Maximum Wave Expansion
+These levels help identify extreme conditions or strong continuation zones.
+Tips for Usage (Educational Only)
+• Look for Green Dot + MFI inflow + Bullish RSI/Stoch = Strong reversal potential.
+• Combine Red Dot + MFI outflow + Overbought wave = Possible short setup.
+• Use in conjunction with price action, support/resistance and higher timeframes for context.
+• Not a standalone buy/sell signal—use it to build confluence and awareness of market dynamics.
+      </pre>
+      <div class="gallery">
+        <a href="Images/MVB/1.png" title="Market Vision B Example 1" class="gallery-link"><img src="Images/MVB/1.png" alt="Market Vision B Example 1"></a>
+        <a href="Images/MVB/2.png" title="Market Vision B Example 2" class="gallery-link"><img src="Images/MVB/2.png" alt="Market Vision B Example 2"></a>
+        <a href="Images/MVB/3.png" title="Market Vision B Example 3" class="gallery-link"><img src="Images/MVB/3.png" alt="Market Vision B Example 3"></a>
+        <a href="Images/MVB/4.png" title="Market Vision B Example 4" class="gallery-link"><img src="Images/MVB/4.png" alt="Market Vision B Example 4"></a>
+        <a href="Images/MVB/5-DarkMode_Feature-For_White_Chart_Traders.png" title="Market Vision B Dark Mode Feature" class="gallery-link"><img src="Images/MVB/5-DarkMode_Feature-For_White_Chart_Traders.png" alt="Market Vision B Dark Mode Feature"></a>
+      </div>
+      <div class="img-modal" id="imgModal">
+        <div class="img-modal-content">
+          <button class="img-modal-close" id="imgModalClose" aria-label="Close image viewer">&times;</button>
+          <img src="" alt="Expanded indicator screenshot" id="imgModalImg">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Market Toolkit. All rights reserved. | <a href="https://www.tradingview.com/u/Marketoolkit/" target="_blank">TradingView</a> | <a href="https://t.me/Marketoolkit" target="_blank">Telegram</a></p>
+  </footer>
+  <script>
+    document.querySelectorAll('.gallery-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('imgModalImg');
+        modalImg.src = this.href;
+        modalImg.alt = this.querySelector('img').alt;
+        modal.classList.add('active');
+      });
+    });
+    document.getElementById('imgModalClose').onclick = function() {
+      document.getElementById('imgModal').classList.remove('active');
+    };
+    document.getElementById('imgModal').onclick = function(e) {
+      if (e.target === this) this.classList.remove('active');
+    };
+  </script>
+</body>
+</html> 
