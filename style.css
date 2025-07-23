@@ -56,7 +56,6 @@ nav a {
 }
 nav a.active, nav a:hover {
   color: #4f8cff;
-  text-shadow: 0 0 8px #4f8cff, 0 0 2px #a18fff;
 }
 .hero {
   text-align: center;
@@ -68,7 +67,6 @@ nav a.active, nav a:hover {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #3fa7ff;
-  text-shadow: 0 0 16px #3fa7ff, 0 0 2px #a18fff;
   letter-spacing: 2px;
 }
 .hero h2 {
@@ -118,7 +116,6 @@ nav a.active, nav a:hover {
 .features h2, .seo h2, .cta-section h2, .indicator-detail h2 {
   color: #4f8cff;
   margin-bottom: 1rem;
-  text-shadow: 0 0 8px #a18fff;
 }
 .features ul, .contact-info ul {
   padding-left: 1.5rem;
@@ -194,7 +191,6 @@ footer a {
 .indicator-card h2 {
   color: #3fa7ff;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 8px #a18fff;
 }
 .indicator-card p {
   color: #a18fff;
