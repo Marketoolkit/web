@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Management Calculator – Market Toolkit</title>
+  <meta name="description" content="Position sizing & risk calculator. Calculate how much capital to allocate per trade based on stop-loss, leverage and max wallet risk." />
+  <link rel="icon" href="Images/icon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- Google tag (gtag.js) – same as your other pages -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TZG8HB3YL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8TZG8HB3YL');
+</script>
+
+<body>
+  <header>
+    <nav>
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="logo">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indicators.html">Indicators</a></li>
+        <li><a href="calc.html" class="active">Calculator</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <img src="Images/Logo.png" alt="Market Toolkit Logo" class="hero-logo">
+      <h1>Risk Management Calculator</h1>
+      <h2>Position sizing made simple</h2>
+      <p>Enter your max wallet loss %, leverage and stop-loss to get the % of your wallet you should allocate.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Card-style container using your global .features style -->
+    <section class="features" id="calculator">
+      <h2>Calculate Your Position Size</h2>
+
+      <label for="walletRisk">Maximum Allowed Loss from Wallet (%)</label>
+      <input type="number" id="walletRisk" value="2" step="0.01" min="0.01" />
+
+      <label for="leverage">Leverage (X)</label>
+      <input type="number" id="leverage" value="10" step="1" min="1" />
+
+      <label for="stoploss">Stop-Loss (% from entry price)</label>
+      <input type="number" id="stoploss" value="3" step="0.01" min="0.01" />
+
+      <div id="resultBox" class="seo" style="margin-top:1.5rem;" aria-live="polite"></div>
+      <!-- Using .seo just to reuse your purple-ish card variant -->
+    </section>
+
+    <section class="cta-section-outer">
+      <div class="cta-section">
+        <h2>Need an Indicator to Go With It?</h2>
+        <p>Check our TradingView suite and keep your risk tight.</p>
+        <a href="indicators.html" class="cta">Browse Indicators</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Market Toolkit. All rights reserved. |
+      <a href="https://www.tradingview.com/u/Marketoolkit/" target="_blank">TradingView</a> |
+      <a href="https://t.me/Marketoolkit" target="_blank">Telegram</a>
+    </p>
+  </footer>
+
+  <script>
+    const resultBox = document.getElementById("resultBox");
+    const stoplossInput = document.getElementById("stoploss");
+    const leverageInput = document.getElementById("leverage");
+    const walletRiskInput = document.getElementById("walletRisk");
+
+    // Treat wallet balance as 100% to output only the % to allocate.
+    const walletBalance = 100;
+
+    function calculate() {
+      const sl = parseFloat(stoplossInput.value);
+      const lev = parseFloat(leverageInput.value);
+      const maxWalletRiskPct = parseFloat(walletRiskInput.value);
+
+      if (
+        isNaN(sl) || sl <= 0 ||
+        isNaN(lev) || lev <= 0 ||
+        isNaN(maxWalletRiskPct) || maxWalletRiskPct <= 0
+      ) {
+        resultBox.innerHTML = '<p>Please enter valid positive values for all fields.</p>';
+        return;
+      }
+
+      // Capital % to use = max allowed wallet risk / (SL% * Leverage)
+      const capitalToUsePct = maxWalletRiskPct / ((sl / 100) * lev);
+      const capitalUsd = (capitalToUsePct / 100) * walletBalance;
+
+      resultBox.innerHTML = `
+        <p><strong>Stop-Loss:</strong> ${sl.toFixed(2)}%</p>
+        <p><strong>Leverage:</strong> ${lev.toFixed(2)}x</p>
+        <p><strong>Maximum Allowed Loss:</strong> ${maxWalletRiskPct}% of Wallet Balance</p>
+        <p><strong>Capital to Use:</strong> <span style="color:#3fa7ff;font-weight:bold;">${capitalToUsePct.toFixed(2)}%</span> of Wallet Balance</p>
+        <p style="font-size:0.9em;color:#b8c6e0;">If your stop-loss is hit, you’ll lose no more than ${maxWalletRiskPct}% of your total wallet.</p>
+      `;
+    }
+
+    stoplossInput.addEventListener("input", calculate);
+    leverageInput.addEventListener("input", calculate);
+    walletRiskInput.addEventListener("input", calculate);
+    calculate();
+  </script>
+</body>
+</html>
