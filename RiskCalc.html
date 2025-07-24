@@ -39,7 +39,6 @@
   </header>
 
   <main>
-    <!-- Card-style container using your global .features style -->
     <section class="features" id="calculator">
       <h2>Calculate Your Position Size</h2>
 
@@ -53,7 +52,6 @@
       <input type="number" id="stoploss" value="3" step="0.01" min="0.01" />
 
       <div id="resultBox" class="seo" style="margin-top:1.5rem;" aria-live="polite"></div>
-      <!-- Using .seo just to reuse your purple-ish card variant -->
     </section>
 
     <section class="cta-section-outer">
@@ -78,7 +76,6 @@
     const leverageInput = document.getElementById("leverage");
     const walletRiskInput = document.getElementById("walletRisk");
 
-    // Treat wallet balance as 100% to output only the % to allocate.
     const walletBalance = 100;
 
     function calculate() {
@@ -95,7 +92,6 @@
         return;
       }
 
-      // Capital % to use = max allowed wallet risk / (SL% * Leverage)
       const capitalToUsePct = maxWalletRiskPct / ((sl / 100) * lev);
       const capitalUsd = (capitalToUsePct / 100) * walletBalance;
 
